@@ -192,8 +192,10 @@ return [
          */
         App\Providers\AppServiceProvider::class,
         App\Providers\AuthServiceProvider::class,
+        App\Providers\BaseAdresseNationaleApiServiceProvider::class,
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
+        App\Providers\LibraryServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
     ],
 

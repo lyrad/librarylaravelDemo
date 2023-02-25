@@ -2,11 +2,12 @@
 
 namespace App\Services;
 
+use App\Contracts\BaseAdresseNationaleApiServiceInterface;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Http;
 
-class BaseAdresseNationaleApiService
+class BaseAdresseNationaleApiService implements BaseAdresseNationaleApiServiceInterface
 {
     private const API_BASE_URI = 'https://api-adresse.data.gouv.fr';
 

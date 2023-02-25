@@ -16,3 +16,13 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/library', [
+    \App\Http\Controllers\LibraryController::class,
+    'index'
+]);
+
+Route::get('/address/search', [
+    \App\Http\Controllers\LibraryController::class,
+    'searchAddress'
+]);

@@ -2,17 +2,29 @@
 
 namespace App\Services;
 
+use App\Contracts\LibraryServiceInterface;
+use App\Repositories\LibraryRepository;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
 
-class LibraryService
+class LibraryService implements LibraryServiceInterface
 {
-    public function __construct(private readonly BaseAdresseNationaleApiService $baseAdresseNationaleApiService)
+    public function __construct(
+        private readonly LibraryRepository $libraryRepository,
+        private readonly BaseAdresseNationaleApiService $baseAdresseNationaleApiService,
+    )
     {
 
     }
 
-    public function search(string $query = ''): Collection
+    public function searchLibrary(array $criteria): array
+    {
+        $libraries = $this->libraryRepository->findBy($criteria);
+
+        return $libraries;
+    }
+
+    public function searchAddress(string $query = ''): Collection
     {
         // Retrieve, filter and normalize API responses.
         $apiSearchResponse = $this->baseAdresseNationaleApiService

@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Contracts\BaseAdresseNationaleApiServiceInterface;
+use App\Services\BaseAdresseNationaleApiService;
 use Illuminate\Support\ServiceProvider;
 
 class BaseAdresseNationaleApiServiceProvider extends ServiceProvider
@@ -11,7 +13,7 @@ class BaseAdresseNationaleApiServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        //
+        $this->app->bind(BaseAdresseNationaleApiServiceInterface::class, BaseAdresseNationaleApiService::class);
     }
 
     /**

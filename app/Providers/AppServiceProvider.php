@@ -2,6 +2,9 @@
 
 namespace App\Providers;
 
+use App\Entities\Library;
+use App\Repositories\LibraryRepository;
+use Doctrine\ORM\EntityManager;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -13,7 +16,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
     }
 
     /**

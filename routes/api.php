@@ -14,6 +14,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
+Route::middleware('auth:sanctum')
+    ->get('/user', function (Request $request) {
+        return $request->user();
+    })
+;
+
+Route::get('/library/{id}', [
+    \App\Http\Controllers\LibraryApiController::class,
+    'show'
+])
+    ->name('api.library.show')
+    ->where('id', '[0-9]+')
+;
