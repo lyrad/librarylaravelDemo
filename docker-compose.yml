@@ -1,0 +1,36 @@
+version: '3'
+services:
+    libray-laravel-demo:
+        container_name: libray-laravel-demo
+        build:
+            context: ./docker
+        volumes:
+            - .:/var/www/html
+        ports:
+            - "8000:80"
+        environment:
+            - APP_ENV=local
+            - APP_DEBUG=true
+        networks:
+            - libray-laravel-demo-network
+        depends_on:
+            - mysql
+    mysql:
+        image: 'mysql/mysql-server:8.0.32'
+        container_name: mysql
+        environment:
+            MYSQL_ROOT_HOST: "%"
+            MYSQL_ROOT_PASSWORD: "root"
+            MYSQL_USER: "root"
+            MYSQL_PASSWORD: "root"
+            MYSQL_DATABASE: "libray-laravelDemo"
+            MYSQL_ALLOW_EMPTY_PASSWORD: 1
+        ports:
+            - 3406:3306
+        volumes:
+            - ./storage/db:/var/lib/mysql
+        networks:
+            - libray-laravel-demo-network
+networks:
+    libray-laravel-demo-network:
+        driver: bridge
