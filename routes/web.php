@@ -20,7 +20,7 @@ Route::get('/', function () {
 Route::get('/library', [
     \App\Http\Controllers\LibraryController::class,
     'index'
-]);
+])->middleware('auth');
 
 Route::get('/address/search', [
     \App\Http\Controllers\LibraryController::class,

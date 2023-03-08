@@ -12,20 +12,14 @@ class LibraryController extends BaseController
 {
     use AuthorizesRequests, ValidatesRequests;
 
-    public function __construct(private readonly LibraryServiceInterface $libraryService)
-    {
+    public function __construct() {
 
     }
 
-    public function index()
+    public function login()
     {
+        $libraries = $this->libraryService->searchLibrary();
 
-    }
-
-    public function searchAddress(LibrarySearchAddressRequest $request)
-    {
-        $adresses = $this->libraryService->searchAddress($request->get('query'));
-
-        dd($adresses);
+        return view('library/index', ['libraries' => $libraries]);
     }
 }

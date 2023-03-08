@@ -27,3 +27,10 @@ Route::get('/library/{id}', [
     ->name('api.library.show')
     ->where('id', '[0-9]+')
 ;
+
+Route::post('/library', [
+    \App\Http\Controllers\LibraryApiController::class,
+    'create'
+])
+    ->name('api.library.create')
+;

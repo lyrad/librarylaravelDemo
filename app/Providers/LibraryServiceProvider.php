@@ -15,6 +15,7 @@ class LibraryServiceProvider extends ServiceProvider
     public function register(): void
     {
         $this->app->bind(LibraryServiceInterface::class, LibraryService::class);
+
         $this->app->bind(LibraryRepository::class, function($app) {
             $entityManager = $app[EntityManagerInterface::class];
             return $entityManager->getRepository(Library::class);

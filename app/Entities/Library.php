@@ -15,7 +15,12 @@ class Library implements \JsonSerializable
      * @ORM\Column(type="integer")
      * @ORM\GeneratedValue
      */
-    private ?int $id;
+    private null|int $id;
+
+    /**
+     * @ORM\Column(type="string", length=16)
+     */
+    private string $name;
 
     /**
      * @ORM\Column(type="string", length=16)
@@ -45,6 +50,16 @@ class Library implements \JsonSerializable
     public function setId(null|int $id): void
     {
         $this->id = $id;
+    }
+
+    public function getName(): string
+    {
+        return $this->name;
+    }
+
+    public function setName(string $name): void
+    {
+        $this->name = $name;
     }
 
     public function getAddressHouseNumber(): string
@@ -91,9 +106,10 @@ class Library implements \JsonSerializable
     {
         return [
             'id' => $this->id,
+            'name' => $this->name,
             'addressHouseNumber' => $this->addressHouseNumber,
             'addressStreet' => $this->addressStreet,
-            'addressStreet' => $this->addressPostalCode,
+            'addressPostalCode' => $this->addressPostalCode,
             'addressCity' => $this->addressCity,
         ];
     }
