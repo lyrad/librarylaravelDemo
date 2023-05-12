@@ -6,7 +6,6 @@ use App\Contracts\LibraryServiceInterface;
 use App\Entities\Library;
 use App\Repositories\LibraryRepository;
 use App\Services\LibraryService;
-use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityManagerInterface;
 use Illuminate\Support\ServiceProvider;
 

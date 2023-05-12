@@ -34,3 +34,11 @@ Route::post('/library', [
 ])
     ->name('api.library.create')
 ;
+
+Route::get('/address/search/{query}', [
+    \App\Http\Controllers\AddressApiController::class,
+    'search'
+])
+    ->name('api.address.search')
+    ->where('query', '[A-Za-z0-9 ]+')
+;
